@@ -169,6 +169,7 @@ a, img {
  body {
    display: grid;
    place-items: center;
+   overflow: hidden;
  }
  
  main {
