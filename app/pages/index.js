@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlayCircle, faPauseCircle } from '@fortawesome/free-solid-svg-icons';
 
 
 export default function Home() {
@@ -354,9 +356,10 @@ return (
             <div className="mb-3">
             <button className="fa button-32 mx-1 fa-fast-backward" onClick={skipToPreviousTrack}></button>
                 {data && data['is_playing'] ? (
-                        <button className="fa button-32 mx-1 fa-pause" onClick={pausePlayback}> {data.is_playing}</button>
+
+                        <FontAwesomeIcon className="fa button-32 mx-1 fa-pause" icon={faPauseCircle} onClick={playPlayback}/>
                     ) : (
-                        <button className="fa button-32 mx-1 fa-play" onClick={playPlayback}></button>
+                        <FontAwesomeIcon className="fa button-32 mx-1 fa-play" icon={faPlayCircle} onClick={playPlayback}/>
                     )}
                     <button className="fa  button-32 mx-1 fa-fast-forward" onClick={skipToNextTrack}></button>
                     {songItem?.type === "track" ? (
