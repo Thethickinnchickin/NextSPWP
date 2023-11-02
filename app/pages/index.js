@@ -356,7 +356,6 @@ return (
         <div className="row "> 
             <div className="mb-3">
             <FontAwesomeIcon className="fa button-32 mx-1 fa-fast-backward" icon={faFastBackward} onClick={skipToPreviousTrack}/>
-            <button className="fa button-32 mx-1 fa-fast-backward" onClick={skipToPreviousTrack}></button>
                 {data && data['is_playing'] ? (
 
                         <FontAwesomeIcon className="fa button-32 mx-1 fa-pause" icon={faPauseCircle} onClick={pausePlayback}/>
