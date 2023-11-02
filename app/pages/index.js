@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlayCircle, faPauseCircle } from '@fortawesome/free-solid-svg-icons';
+import { faPlayCircle, faPauseCircle, faFastForward, faBackward, faFastBackward, faRandom, faRetweet } from '@fortawesome/free-solid-svg-icons';
+import { Fade } from "react-bootstrap";
 
 
 export default function Home() {
@@ -354,27 +355,27 @@ return (
         </div>
         <div className="row "> 
             <div className="mb-3">
+            <FontAwesomeIcon className="fa button-32 mx-1 fa-fast-backward" icon={faFastBackward} onClick={skipToPreviousTrack}/>
             <button className="fa button-32 mx-1 fa-fast-backward" onClick={skipToPreviousTrack}></button>
                 {data && data['is_playing'] ? (
 
-                        <FontAwesomeIcon className="fa button-32 mx-1 fa-pause" icon={faPauseCircle} onClick={playPlayback}/>
+                        <FontAwesomeIcon className="fa button-32 mx-1 fa-pause" icon={faPauseCircle} onClick={pausePlayback}/>
                     ) : (
                         <FontAwesomeIcon className="fa button-32 mx-1 fa-play" icon={faPlayCircle} onClick={playPlayback}/>
                     )}
-                    <button className="fa  button-32 mx-1 fa-fast-forward" onClick={skipToNextTrack}></button>
+                    <FontAwesomeIcon className="fa  button-32 mx-1 fa-fast-forward" icon={faFastForward} onClick={skipToNextTrack}/>
+
                     {songItem?.type === "track" ? (
                 <>
                     {data && data.shuffle_state ? (
-                        
-                        <button className="fa fa-random button-28 shuffle-on" onClick={toggleShuffle}></button>
+                        <FontAwesomeIcon className="fa fa-random button-28 shuffle-on" icon={faRandom} onClick={toggleShuffle} />
                     ) : (
-                        <button className="fa fa-random button-28 shuffle-off" onClick={toggleShuffle}></button>
+                        <FontAwesomeIcon className="fa fa-random button-28 shuffle-off" icon={faRandom} onClick={toggleShuffle} />
                     )}
                     {data?.repeat_state && data.repeat_state === "off" ? (
-                        
-                        <button className="fa fa-retweet button-28 shuffle-off" onClick={() => toggleRepeat("context")}></button>
+                        <FontAwesomeIcon className="fa fa-retweet button-28 shuffle-off" icon={faRetweet} onClick={() => toggleRepeat("context")} />
                     ) : (
-                        <button className="fa fa-retweet button-28 shuffle-on" onClick={() =>toggleRepeat("off")}></button>
+                        <FontAwesomeIcon className="fa fa-retweet button-28 shuffle-on" icon={faRetweet} onClick={() => toggleRepeat("context")} />
                     )}
                 </>) : (
                     <></>
